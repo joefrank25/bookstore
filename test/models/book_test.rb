@@ -35,5 +35,13 @@ class BookTest < ActiveSupport::TestCase
     end
 
 
-
+    test "update from a fixture" do
+      book = books(:ender)
+      delta = 0.001
+      assert_in_delta 4.83, book.price, delta
+      book.price = 3.99
+      book.save
+      updated = Book.find(book.id)
+      assert_in_delta 3.99, updated.price, delta
+    end
 end
