@@ -1,3 +1,4 @@
+<%= render 'shared/flashes' %>
 <article class="book">
   <header>
     <h2> <%= @book.title %> </h2>
@@ -6,7 +7,6 @@
   <p><label>Author:</label> <%= @book.author %></p>
   <p><label>Pages:</label> <%= number_with_delimiter(@book.pages) %></p>
   <p><label>Price:</label> <%= number_to_currency(@book.price) %></p>
-
 </article>
 
 <%= link_to 'Edit', edit_book_path(@book) %>
