@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+
 #get "/books" => "books#index", as: 'books'
 #get "/books/new" => "books#new", as: 'new_book'
 #get "/books/:id" => "books#show", as: 'book'
@@ -7,7 +9,8 @@ Rails.application.routes.draw do
 #patch "/books/:id" => "books#update"
 #delete "/books/:id" => "books#destroy"
 resources :books do
-    get 'page/:page', :action => :index, :on => :collection
+  resources :reviews
+  get 'page/:page', :action => :index, :on => :collection
 end
 
 root 'books#index'
